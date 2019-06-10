@@ -30,6 +30,19 @@ class GameScene: SKScene {
         print("MOUSE X?  \(mousePosition.x)")
         print("MOUSE Y?  \(mousePosition.y)")
         print("------")
+        
+        // 1. Dectect what sprit was touched
+        let spriteTouched = self.atPoint(mousePosition)
+        print("You Touced: \(spriteTouched)")
+        
+        // 2. check if he touched tree
+        if(spriteTouched.name == "tree")
+        {
+            print("Tree Touched")
+            
+        }
+        
+        
     }
     
 }
