@@ -14,6 +14,37 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
     }
     
+    // keep track of all the cat objects on the screen
+    var oranges:[SKSpriteNode] = []
+    
+    func makeOrange(xPosition:CGFloat, yPosition:CGFloat) {
+        // lets add some cats
+        let orange = SKSpriteNode(imageNamed: "Orange")
+        
+        orange.position = CGPoint(x:xPosition, y:yPosition)
+        orange.zPosition = 100
+        
+        
+        //add phuysics to the orange
+        
+        // physicsBody is HitBox of IOS
+        orange.physicsBody = SKPhysicsBody(circleOfRadius: orange.size.width / 2)
+        // 2. Add make oange afftected by physics
+        
+        //by defalut, a physics body has a:
+        // dynamic == true
+        // affectedbygravity == true
+        orange.physicsBody?.isDynamic = true
+        
+        // add the cat to the scene
+        addChild(orange)
+        
+        // add the cat to the cats array
+        self.oranges.append(orange)
+        
+        print("Where is orange? \(xPosition), \(yPosition)")
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         let locationTouched = touches.first
@@ -39,7 +70,7 @@ class GameScene: SKScene {
         if(spriteTouched.name == "tree")
         {
             print("Tree Touched")
-            
+            makeOrange(xPosition: mousePosition.x, yPosition: mousePosition.y)
         }
         
         
