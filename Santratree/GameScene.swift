@@ -74,6 +74,23 @@ class GameScene: SKScene {
         }
         
         
+    } // end touchBegan
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let locationTouched = touches.first
+        
+        if (locationTouched == nil) {
+            // This is error handling
+            // Sometimes the mouse detection doesn't work properly
+            // and IOS can't get the position.
+            return
+        }
+        
+        let mousePosition = locationTouched!.location(in:self)
+        
+        print("Ending (x,y): \(mousePosition.x) , \(mousePosition.y)")
+        print("------")
+        
     }
     
 }
