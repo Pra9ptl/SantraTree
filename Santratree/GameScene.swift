@@ -18,7 +18,7 @@ class GameScene: SKScene {
     // keep track of all the cat objects on the screen
     var oranges:[SKSpriteNode] = []
     
-    func makeOrange(xPosition:CGFloat, yPosition:CGFloat) {
+    func makeOrange(xPosition:CGFloat, yPosition:CGFloat, throwX:CGFloat, throwY:CGFloat) {
         // lets add some cats
         let orange = SKSpriteNode(imageNamed: "Orange")
         
@@ -40,7 +40,7 @@ class GameScene: SKScene {
         // add the cat to the scene
         addChild(orange)
         
-        let throwOrange = SKAction.applyImpulse(CGVector(dx:50, dy:100),duration: 0.5)
+        let throwOrange = SKAction.applyImpulse(CGVector(dx:throwX, dy:throwY),duration: 0.5)
         orange.run(throwOrange)
         
         // add the cat to the cats array
@@ -82,8 +82,6 @@ class GameScene: SKScene {
         
     } // end touchBegan
     
-    var mouseEndingPosition:CGPoint = CGPoint(x: 0, y: 0)
-    
     
     // MARK: touch ended
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -99,7 +97,12 @@ class GameScene: SKScene {
         let mousePosition = locationTouched!.location(in:self)
         
         
-        self.mouseEndingPosition = mousePosition
+        let diffX = mousePosition.x - mouseStatingPosition.x
+        let diffY = mousePosition.y - mouseStatingPosition.y
+        
+        //create orange and throw it in that direction
+        self.makeOrange(xPosition:mousePosition.x, yPosition:mousePosition.y, throwX:diffX, throwY:diffY)
+        
         
         
     }
