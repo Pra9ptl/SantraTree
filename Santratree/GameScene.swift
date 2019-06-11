@@ -77,6 +77,8 @@ class GameScene: SKScene {
         if(spriteTouched.name == "tree")
         {
             self.mouseStatingPosition = mousePosition
+        } else {
+            self.mouseStatingPosition = CGPoint(x: 0, y: 0)
         }
         
         
@@ -94,16 +96,17 @@ class GameScene: SKScene {
             return
         }
         
-        let mousePosition = locationTouched!.location(in:self)
         
-        
-        let diffX = mousePosition.x - mouseStatingPosition.x
-        let diffY = mousePosition.y - mouseStatingPosition.y
-        
-        //create orange and throw it in that direction
-        self.makeOrange(xPosition:mousePosition.x, yPosition:mousePosition.y, throwX:diffX, throwY:diffY)
-        
-        
+        if(self.mouseStatingPosition.x != 0 && self.mouseStatingPosition.y != 0){
+            let mousePosition = locationTouched!.location(in:self)
+            
+            
+            let diffX = mousePosition.x - mouseStatingPosition.x
+            let diffY = mousePosition.y - mouseStatingPosition.y
+            
+            //create orange and throw it in that direction
+            self.makeOrange(xPosition:mousePosition.x, yPosition:mousePosition.y, throwX:diffX, throwY:diffY)
+        }
         
     }
     
