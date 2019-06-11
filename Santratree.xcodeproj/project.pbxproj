@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B75E7FE22B00FD90014B172 /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9B75E7FD22B00FD90014B172 /* Level2.sks */; };
 		9B9B9E9822AEA4F7007BF426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9B9E9722AEA4F7007BF426 /* AppDelegate.swift */; };
 		9B9B9E9A22AEA4F7007BF426 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9B9B9E9922AEA4F7007BF426 /* GameScene.sks */; };
 		9B9B9E9C22AEA4F7007BF426 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9B9B9E9B22AEA4F7007BF426 /* Actions.sks */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B75E7FD22B00FD90014B172 /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
 		9B9B9E9422AEA4F7007BF426 /* Santratree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Santratree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B9B9E9722AEA4F7007BF426 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B9B9E9922AEA4F7007BF426 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				9B9B9E9922AEA4F7007BF426 /* GameScene.sks */,
 				9B9B9E9B22AEA4F7007BF426 /* Actions.sks */,
 				9B9B9E9D22AEA4F7007BF426 /* GameScene.swift */,
+				9B75E7FD22B00FD90014B172 /* Level2.sks */,
 				9B9B9E9F22AEA4F7007BF426 /* GameViewController.swift */,
 				9B9B9EA122AEA4F7007BF426 /* Main.storyboard */,
 				9B9B9EA422AEA4FB007BF426 /* Assets.xcassets */,
@@ -239,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B9B9EA322AEA4F7007BF426 /* Main.storyboard in Resources */,
+				9B75E7FE22B00FD90014B172 /* Level2.sks in Resources */,
 				9B9B9E9A22AEA4F7007BF426 /* GameScene.sks in Resources */,
 				9B9B9EA522AEA4FB007BF426 /* Assets.xcassets in Resources */,
 				9B9B9EA822AEA4FB007BF426 /* LaunchScreen.storyboard in Resources */,
