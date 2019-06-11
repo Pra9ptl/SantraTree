@@ -49,6 +49,9 @@ class GameScene: SKScene {
         print("Where is orange? \(xPosition), \(yPosition)")
     }
     
+    var mouseStatingPosition:CGPoint = CGPoint(x: 0, y: 0)
+    
+    // MARK: Touch began
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         let locationTouched = touches.first
@@ -73,13 +76,16 @@ class GameScene: SKScene {
         // 2. check if he touched tree
         if(spriteTouched.name == "tree")
         {
-            print("Tree Touched")
-            makeOrange(xPosition: mousePosition.x, yPosition: mousePosition.y)
+            self.mouseStatingPosition = mousePosition
         }
         
         
     } // end touchBegan
     
+    var mouseEndingPosition:CGPoint = CGPoint(x: 0, y: 0)
+    
+    
+    // MARK: touch ended
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let locationTouched = touches.first
         
@@ -92,8 +98,9 @@ class GameScene: SKScene {
         
         let mousePosition = locationTouched!.location(in:self)
         
-        print("Ending (x,y): \(mousePosition.x) , \(mousePosition.y)")
-        print("------")
+        
+        self.mouseEndingPosition = mousePosition
+        
         
     }
     
