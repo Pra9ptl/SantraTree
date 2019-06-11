@@ -10,9 +10,12 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
-    
+    var skull: SKNode?
+    var ground: SKNode?
     override func didMove(to view: SKView) {
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
+        self.skull = self.childNode(withName: "skull")
+        self.ground = self.childNode(withName: "ground")
     }
     
     // keep track of all the cat objects on the screen
@@ -108,6 +111,23 @@ class GameScene: SKScene {
             self.makeOrange(xPosition:mousePosition.x, yPosition:mousePosition.y, throwX:diffX, throwY:diffY)
         }
         
+    }
+    
+    
+    
+    override func update(_ currentTime: TimeInterval) {
+        //test the collision code
+        if(skull!.intersects(ground!) == true){
+            print("Skull hits the ground")
+        
+            let scene = SKScene(fileNamed: "Level2")
+            scene!.scaleMode = .aspectFill
+            
+            let flipTransition = SKTransition.flipVertical(withDuration: 2)
+            
+            self.scene?.view?.presentScene(scene!, transition: flipTransition)
+            
+        }
     }
     
 }
