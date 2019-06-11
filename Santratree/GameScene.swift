@@ -12,6 +12,7 @@ import GameplayKit
 class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
+        self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
     }
     
     // keep track of all the cat objects on the screen
@@ -38,6 +39,9 @@ class GameScene: SKScene {
         
         // add the cat to the scene
         addChild(orange)
+        
+        let throwOrange = SKAction.applyImpulse(CGVector(dx:50, dy:100),duration: 0.5)
+        orange.run(throwOrange)
         
         // add the cat to the cats array
         self.oranges.append(orange)
